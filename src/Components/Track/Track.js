@@ -11,20 +11,20 @@ class Track extends React.Component {
         if (this.props.isRemoval) {
             return <button className="Track-action">-</button>
         } else {
-            return <button onClick={this.addTrack} className="Track-action">+</button>
-        }
+            return <button className="Track-action" onClick={this.addTrack}>+</button>
+        } //initiates addTrack in App
     }
 
     addTrack() {
-        this.props.onAdd(this.props.track)
+        this.props.onAdd(this.props.trackInfo) // this parameter is used in addTrack in App.js
     }
 
     render() {
         return (
         <div className="Track">
             <div className="Track-information">
-                <h3>{this.props.track.name}</h3>
-                <p>{this.props.track.artist} |  {this.props.track.album}</p>
+                <h3>{this.props.trackInfo.name}</h3>
+                <p>{this.props.trackInfo.artist} |  {this.props.trackInfo.albums}</p>
             </div>
             {this.renderAction()}
         </div>

@@ -1,5 +1,4 @@
 import './App.css';
-import { render } from '@testing-library/react';
 import SearchBar from '../SearchBar/SearchBar.js'
 import SearchResults from '../SearchResults/SearchResults.js'
 import Playlist from '../Playlist/Playlist.js'
@@ -53,7 +52,7 @@ class App extends React.Component {
     this.addTrack = this.addTrack.bind(this)
   }
 
-  addTrack(track) {
+  addTrack(track) { // the parameter here is the value of the addtrack parameter in Track.js
     let tracks = this.state.playlistTracks;
     if (tracks.find(trackP => trackP.id === track.id)) {
       return;
@@ -69,10 +68,10 @@ class App extends React.Component {
       <div>
         <h1>Ja<span className="highlight">mmm</span>er</h1>
         <div className="App">
-          {/* Add a SearchBar component */}
+          <SearchBar />
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack}/>
-            <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
+            <Playlist playlistTracks={this.state.playlistTracks} playlistName={this.state.playlistName} />
           </div>
         </div>
       </div>
