@@ -50,6 +50,10 @@ class App extends React.Component {
       }]
     }
     this.addTrack = this.addTrack.bind(this)
+    this.removeTrack = this.removeTrack.bind(this)
+    this.updatePlaylistName = this.updatePlaylistName.bind(this)
+    this.savePlaylist = this.savePlaylist.bind(this)
+    this.search = this.search.bind(this)
   }
 
   addTrack(track) { // the parameter here is the value of the addtrack parameter in Track.js
@@ -63,15 +67,38 @@ class App extends React.Component {
     })
   }
 
+  removeTrack(track) {
+    let tracks = this.state.playlistTracks;
+    tracks = tracks.filter(trackP => trackP.id !== track.id) // filters out the tracks that share the same id as the track selected 
+      this.setState({
+        playlistTracks: tracks
+      })
+  }
+
+  updatePlaylistName(name) {
+    this.setState({
+      playlistName: name
+    })
+  }
+
+  savePlaylist() {
+    alert('Hello good sir')
+    const trackUris = this.state.playlistTracks.map(track => track.uri) // creates an array of uri's from each track
+  }
+
+  search(searchTerm) {
+    console.log(searchTerm)
+  }
+
   render() {
     return (
       <div>
         <h1>Ja<span className="highlight">mmm</span>er</h1>
         <div className="App">
-          <SearchBar />
+          <SearchBar onSearch={this.search} />
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack}/>
-            <Playlist playlistTracks={this.state.playlistTracks} playlistName={this.state.playlistName} />
+            <Playlist onSave={this.savePlaylist} onNameChange={this.updatePlaylistName} playlistTracks={this.state.playlistTracks} playlistName={this.state.playlistName} onRemove={this.removeTrack} />
           </div>
         </div>
       </div>
