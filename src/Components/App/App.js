@@ -1,54 +1,22 @@
+import React from 'react';
 import './App.css';
 import SearchBar from '../SearchBar/SearchBar.js'
 import SearchResults from '../SearchResults/SearchResults.js'
 import Playlist from '../Playlist/Playlist.js'
-import React from 'react';
+import Spotify from '../../Util/Spotify.js'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      searchResults: [{
-        name: 'name1',
-        artist: 'artist1',
-        albums: 'album1',
-        id: 1
-      },
-      {
-        name: 'name2',
-        artist: 'artist2',
-        albums: 'album2',
-        id: 2
-      },
-      {
-        name: 'name3',
-        artist: 'artist3',
-        albums: 'album3',
-        id: 3
-      }],
+      searchResults: [],
 
-      playlistName: 'Nas Playlist',
+      playlistName: 'My Playlist',
 
-      playlistTracks: [{
-        name: 'playlistName1',
-        artist: 'playlistArtist1',
-        albums: 'playlistAlbum1',
-        id: 4
-      },
-      {
-        name: 'playlistName2',
-        artist: 'playlistArtist2',
-        albums: 'playlistAlbum2',
-        id: 5
-      },
-      {
-        name: 'playlistName3',
-        artist: 'playlistArtist3',
-        albums: 'playlistAlbum3',
-        id: 6
-      }]
+      playlistTracks: []
     }
+
     this.addTrack = this.addTrack.bind(this)
     this.removeTrack = this.removeTrack.bind(this)
     this.updatePlaylistName = this.updatePlaylistName.bind(this)
@@ -82,12 +50,21 @@ class App extends React.Component {
   }
 
   savePlaylist() {
-    alert('Hello good sir')
-    const trackUris = this.state.playlistTracks.map(track => track.uri) // creates an array of uri's from each track
+    const trackUris = this.state.playlistTracks.map(track => track.uri); // creates an array of uri's from each track
+    Spotify.savePlaylist(this.state.playlistName, trackUris).then(() => {
+      this.setState({
+        playlistName: 'New Playlist',
+        playlistTracks: []
+      })
+    })
   }
 
-  search(searchTerm) {
-    console.log(searchTerm)
+  search(term) {
+    Spotify.search(term).then(searchResults => {
+      this.setState({
+        searchResults: searchResults
+      })
+    })
   }
 
   render() {
