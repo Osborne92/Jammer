@@ -10,6 +10,8 @@ const Spotify = {
         // check for access token match
         const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/); // window.location.href locates current url. Captures characters assigned to access token. ([^&]*)/ captures all charcters in the access token
         const expiresinMatch = window.location.href.match(/expires_in=([^&]*)/);
+        // console.log(accessTokenMatch)
+        // console.log(expiresinMatch)
         // if accessTokenMatch & expiresinMatch are in the url...
         if (accessTokenMatch && expiresinMatch) {
             // sets value for accessToken
@@ -77,6 +79,7 @@ const Spotify = {
             .then(jsonResponse => {
                 // sets the userId variable equal to the id of the returned jsonResponse id
                 userId = jsonResponse.id;
+                // console.log(jsonResponse)
                 return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
                     headers: headers,
                     method: 'POST',
