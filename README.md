@@ -26,7 +26,7 @@ Use this app to locate music and make your own Spotify playlists. With the abili
    npm start
    ```
 4. Retrieve ClientID key at https://developer.spotify.com/dashboard and click "create an app" and follow instructions to get ClientID key which is connected to your Spotify account. 
-5. Once the clientID is generated, go to the Spotity.js file within the Util folder. Set the variable clientId to your personal generated clientID
+5. Once the clientID is generated, go to the Spotity.js file within the Util folder. Set the variable clientID to your personal generated clientID
 
 <!-- USAGE -->
 ## Usage
