@@ -39,4 +39,4 @@ Use this app to locate music and make your own Spotify playlists. With the abili
 
 Dane Christensen - danechristensen92@gmail.com
 
-Project Link: [https://github.com/Osborne92/World_Info_API](https://github.com/Osborne92/World_Info_API)
+Project Link: [https://github.com/Osborne92/Jammer](https://github.com/Osborne92/Jammer)
