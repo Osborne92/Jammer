@@ -19,7 +19,7 @@ Use this app to locate music and make your own Spotify playlists. With the abili
    ```
 2. Add react scripts
    ```sh
-   npm install react-scripts --save
+   npm install react-scripts
    ```
 3. Run npm start within project root directory
    ```sh
