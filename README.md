@@ -13,7 +13,7 @@ Use this app to locate music and make your own Spotify playlists. With the abili
 
 <!-- GETTING STARTED -->
 ### Installation
-1. Simply clone the repo
+1. Clone the repo
    ```sh
    git clone git@github.com:Osborne92/Jammer.git
    ```
