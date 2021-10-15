@@ -8,8 +8,8 @@ Use this app to locate music and make your own Spotify playlists. With the abili
 ### Built With
 * [JavaScript](https://www.javascript.com/)
 * [React](https://reactjs.org/)
-* [HTML]
-* [CSS]
+* HTML
+* CSS
 
 <!-- GETTING STARTED -->
 ### Installation
